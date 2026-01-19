@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+:is(.dark .dark\:bg-wash-dark) {
+    --tw-bg-opacity: 1;
+    background-color: rgb(35 39 47/var(--tw-bg-opacity))
+}
+.bg-wash,
+.bg-white {
+    --tw-bg-opacity: 1;
+    /* background-color: rgb(35 39 47/var(--tw-bg-opacity)) */
+    background-color: rgb(255 255 255/var(--tw-bg-opacity))
+}
+.bg-opacity-10 {
+    --tw-bg-opacity: 10%
+}
+
+.bg-opacity-5 {
+    --tw-bg-opacity: 05%
+}
+
+.bg-opacity-50 {
+    --tw-bg-opacity: 50%
+}
+
+.bg-opacity-80 {
+    --tw-bg-opacity:80%
+}
+
+:is(.dark .dark\:bg-opacity-95) {
+    --tw-bg-opacity: 95%;
+}
+.bg-opacity-90 {
+    --tw-bg-opacity: 90%
+}
+.bg-opacity-95 {
+    --tw-bg-opacity: 95%
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255/var(--tw-bg-opacity));
+    color: var(--color-gray-950);
+    &:where(.dark, .dark *) {
+        background-color: rgb(35 39 47/var(--tw-bg-opacity));
+        /* background-color: var(--color-gray-950); oklch(13% 0.028 261.692) = #030712 */
+        color: var(--color-white);
+        
+        
+    }
+}
+.property-bg{
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255/var(--tw-bg-opacity));
+    
+    &:where(.dark, .dark *) {
+        background-color: rgb(35 39 47/var(--tw-bg-opacity));
+    }
+    
+}
+.property-text{
+    
+    --tw-bg-opacity: 1;
+    color: rgb(35 39 47/var(--tw-bg-opacity));
+    &:where(.dark, .dark *) {
+        color: rgb(255 255 255/var(--tw-bg-opacity));
+    }
+}
+
+
+.scrollbar-hidden{
+    /* --scrollbar-padding:15px; */
+    overflow: hidden;
+}
+
+.test{
+    width: 22px !important;
+}
