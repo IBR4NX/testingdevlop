@@ -1,5 +1,5 @@
 export default function Notfound() {
-    return <div className="bg-gray-900 text-white flex items-center justify-center h-screen">
+    return <div className="flex items-center justify-center h-screen">
         <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">404 - Lost in Space</h1>
             <p className="text-xl mb-6">Houston, we have a problem!</p>

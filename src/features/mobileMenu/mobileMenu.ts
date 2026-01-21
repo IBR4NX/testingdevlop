@@ -15,6 +15,11 @@ export const mobileMenu=createSlice({
         menu:(state,action:PayloadAction<boolean>)=>{
             // console.log("calling the reducer for active plus",action);
             state.value=action.payload;
+            if (action.payload) {
+                document.documentElement.classList.add("scrollbar-hidden");
+            }else{
+                document.documentElement.classList.remove("scrollbar-hidden");
+            }
         }
     }
 })

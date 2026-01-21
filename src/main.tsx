@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./assets/css/fontFace.css";
-import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./app/Store.ts";
+import App from "./App.tsx";
+import "./index.css";
+import "./i18n/index.ts";
 // import { StrictMode } from "react";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

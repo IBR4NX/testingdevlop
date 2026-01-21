@@ -28,10 +28,13 @@ export const themeSlice=createSlice({
           const systemTheme= window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
           document.documentElement.classList.remove("dark","light");
           document.documentElement.classList.add(systemTheme);
-          localStorage.setItem("theme", "system");
+          localStorage.setItem("theme", systemTheme);
           state.value="system";
         
       },
+      // changeTheme:(state,action:{payload:Theme})=>{
+      //     const newTheme=action.payload;
+
     }
 })
 
