@@ -18,7 +18,6 @@ function List({lang}: {lang: string}) {
 
   return (
     <>
-    {lang}
         <ul className="  flex flex-col gap-4 -mr-4 m-px -ml-1 border-gray-950/10   dark:border-white/25 ">
           {navigation.map((item) => (
             <li key={item.name} className={` -ml-0.5  ${lang==="en" ? "hover:border-l" : "hover:border-r"}    border-blue-500  `}>

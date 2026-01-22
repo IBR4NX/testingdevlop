@@ -1,5 +1,7 @@
+import Footer from "../Footers/Footer";
+
 export default function Notfound() {
-    return <div className="flex items-center justify-center h-screen">
+    return <div className="flex flex-col items-center justify-center pt-10 min-h-screen">
         <div className="text-center">
             <h1 className="text-4xl font-bold mb-4">404 - Lost in Space</h1>
             <p className="text-xl mb-6">Houston, we have a problem!</p>
@@ -15,5 +17,6 @@ export default function Notfound() {
                 <p className="text-lg italic">Because it needed some space!</p>
             </div>
         </div>
+        <Footer/>
     </div>
 }

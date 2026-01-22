@@ -3,13 +3,15 @@ import { RecoilRoot } from 'recoil';
 import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useDispatch } from 'react-redux';
-import { dark, system } from './features/theme/themeSlice';
 
 const Home = React.lazy(() => import("./app/Home.js"));
+const About = React.lazy(() => import("./app/About.js"));
 const NotFound = React.lazy(() => import("./components/notfound/notfound"));
-// const Hero = React.lazy(() => import("./components/Heros/Hero"));;
 import Layout from './app/Layout/Layout';
 import Sping from './components/Animations/Sping.js';
+import { setTheme } from './features/theme/themeSlice.js';
+import PrivacyPolicy from './app/PrivacyPolicy.js';
+import Contact from './app/Contact.js';
 
 /*
 const Search = React.lazy(() => import("@/pages/Search"));
@@ -18,14 +20,9 @@ const Profile = React.lazy(() => import("@/pages/Profile"));
 */
 
 function App() {
-  const theme = localStorage.getItem("theme");
   const dispatch = useDispatch()
-  if (!theme || theme === "system") {
-    dispatch(system())
-  }
-  if (theme === "dark") {
-    dispatch(dark());
-  }
+  dispatch(setTheme());
+  
   return (
     <>
       <div className="isolate">
@@ -50,15 +47,18 @@ function AnimatedRoutes() {
       <AnimatePresence mode="wait">
         <Suspense fallback={<Sping />}>
           <Routes location={location} key={location.pathname}>
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/404" />} />
 
             <Route element={<Layout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
               {/* 
               <Route path="/search" element={ <Search /> } />
               <Route path="/info" element={ <Info /> } />
               <Route path="/profile" element={ <Profile /> } />
               */}
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             </Route>
               <Route path="/404" element={<NotFound />} />
           </Routes>

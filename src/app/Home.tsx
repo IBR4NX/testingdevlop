@@ -26,8 +26,8 @@ export default function Home() {
             className="mt-4 text-gray-600 dark:text-gray-300 max-w-xl mx-auto lg:mx-0 "
           >
                 {t('subtitle')}
-                <p>{t('home')}</p>
                       </motion.p>
+                <p>{t('home')}</p>
 
           {/* example: you can use `bodyClass` in the component */}
           {/* <div className="mt-2 text-xs text-gray-500">Body class: {bodyClass}</div> */}

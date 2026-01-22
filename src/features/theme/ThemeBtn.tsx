@@ -1,18 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../../app/Store";
-import { dark, light } from "./themeSlice";
-import "./style.css"
+import {setTheme } from "./themeSlice";
+import { IoSunnyOutline ,IoMoonOutline,IoContrastSharp } from "react-icons/io5";
 export default function ThemeBtn() {
-  // eslint-disable-next-line react-hooks/rules-of-hooks, @typescript-eslint/no-unused-vars
   const theme = useSelector((state: RootState) => state.theme.value);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const dispatchTheme = useDispatch();
-
   return (
     <>  
-        <button onClick={()=>dispatchTheme(theme === "light" ? dark() :   light())}
-          className={` rounded-2xl cursor-pointer p'-1 textred-500 bgred-500 `}>
-            <span className="color-theme__option  " data-mode={theme === "light" ? "light" : theme === "dark" ? "dark" :undefined}></span>
+        <button onClick={()=>dispatchTheme(setTheme())}
+          className={` rounded-full cursor-pointer text-black dark:text-white *:size-6 size-8 p-1 `}>
+            {theme === "light" ? <IoSunnyOutline/> : theme==="dark"?<IoMoonOutline/>:<IoContrastSharp/>} 
         </button>
     </>
   );

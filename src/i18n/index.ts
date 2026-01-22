@@ -28,7 +28,6 @@ i18n
 
 i18n.on("languageChanged", (lang) => {
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-  console.log("tst");
 });
 
 // document.documentElement.dir =

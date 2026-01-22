@@ -1,6 +1,5 @@
 {
   "test":"testing",
-  
     "home": "Home",
     "search": "Search",
     "services": "Services",
@@ -14,5 +13,14 @@
     "login": "Login",
     "register": "Register",
     "logout": "Logout"
+  }
+  ,
+  "contacts": {
+    "title": "Contact Us",
+    "intro": "We welcome your inquiries, feedback and suggestions. If you have any questions or need clarification about site content or the privacy policy, don't hesitate to reach out.",
+    "infoTitle": "Contact Information",
+    "emailPrompt": "You can contact us directly via email:",
+    "email": "ibr4nx@gmail.com",
+    "note": "We try to reply to all messages as soon as possible."
   }
 }

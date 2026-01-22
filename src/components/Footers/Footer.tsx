@@ -1,54 +1,64 @@
-
-import { FaInstagram, FaFacebook,FaX ,FaWhatsapp ,FaGithub } from "react-icons/fa6";
-
+import { useTranslation } from "react-i18next";
+import { FaInstagram, FaFacebook, FaX, FaWhatsapp, FaGithub } from "react-icons/fa6";
+import ThemeBtn from "../../features/theme/ThemeBtn";
 
 export default function Footer() {
+  const { t } = useTranslation("footer");
+  const { i18n } = useTranslation();
+  const changeLang = (lng: string) => {
+    i18n.changeLanguage(lng);
 
+  };
 
   return (
-    <footer className=" py-8 mx-5 border-t divide-y *:py-5 divide-gray-950/10 dark:divide-white/5 border-gray-950/10 dark:border-white/10 mt-20 grid grid-cols-1 ">
+    <footer className="*:py-5 mx-5 border-t divide-y divide-gray-950/10 dark:divide-white/5 border-gray-950/10 dark:border-white/10 mt-20">
+      <div className="container mx-5">
+        <div className=" flex justify-around items-center mb-4 pt-4 pb-2 mb-4">
+          <h2 className="text-xl col-aputo self-center min-w2xs text-center border-b justify-self-center font-bold  border-gray-950/10 dark:border-white/10">{t("quickLinks")}</h2>
+          <div className="  flex items-center gap-2 rounded-2xl px-1 ">
+            <ThemeBtn />
 
-      <div className="container mx-auto grid grid-cols-2 md:grid-cols-2 gap-8 px-4">
-
-        {/* Social Media Section */}
-
-
-        {/* Quick Links Section */}
-        <div >
-          <h2 className="text-lg font-bold mb-4">Quick Links</h2>
-          <ul>
-            <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Services</a></li>
-            <li><a href="#" className="hover:underline">Privacy Policy</a></li>
-            <li><a href="#" className="hover:underline">Contact</a></li>
-          </ul>
+            <button onClick={() => changeLang(i18n.language.startsWith('ar') ? 'en' : 'ar')} > {i18n.language.startsWith('ar') ? 'EN' : 'AR'} </button>
+          </div>
         </div>
+        <div className="  grid grid-cols-2 gap-4  md:grid-cols-2">
+          <div className=" *:block *:w-fit gap-3 flex flex-col">
+            <a href="/about" className="hover:underline">{t("links.about")}</a>
+            <a href="/services" className="hover:underline">{t("links.services")}</a>
+            <a href="/privacy-policy" className="hover:underline">{t("links.privacy")}</a>
+            <a href="/contact" className="hover:underline">{t("links.contact")}</a>
+          </div>
 
-        {/* Contact Section */}
-        <div dir="ltr" className=" ">
-          <h2 className="text-lg font-bold mb-4">Contact Us</h2>
-          <p>location:  Mekhlaf, TAIZ</p>
-          <a href="tel:+967738386364">Phone: +967 738 386 364</a>
-          <a href="mailto:ibr4nx@gmail.com">Email: ibr4nx@gmail.com</a>
+          <div className=" *:block *:w-fit gap-3 flex flex-col">
+            <a href="/blog" className="hover:underline">{t("links.blog")}</a>
+            <a href="/careers" className="hover:underline">{t("links.careers")}</a>
+            <a href="/support" className="hover:underline">{t("links.support")}</a>
+            <a href="/faq" className="hover:underline">{t("links.faq")}</a>
+          </div>
+
+        </div>
+      </div>
+      <div className="container mx-auto grid grid-cols-1    px-4">
+
+        {/* <div>
+        </div> */}
+        <div className="container mx-auto flex items-center justify-around text-gray-500  ">
+          <h2 className="text-lg font-bold ">{t("followUs")}:</h2>
+          <div className="flex items-center gap-4 **:size-6 mb-3 *:hover:text-black *:dark:hover:text-white transition-colors duration-200">
+            <a href="https://www.facebook.com/ibr4nx" aria-label="facebook"><FaFacebook /></a>
+            <a href="https://www.instagram.com/ibr4nx" aria-label="instagram"><FaInstagram /></a>
+            <a href="https://www.twitter.com/ibr4nx" aria-label="twitter"><FaX /></a>
+            <a href="https://www.whatsapp.com/+967738386364" aria-label="whatsapp"><FaWhatsapp /></a>
+          </div>
         </div>
 
       </div>
-      <div className="  flex flex-col md:flex-row gap-y-10 justify-between text-white/40 ">
-
-        <div className="flex flex-col  justify-between items-center mx-10  ">
-          <h2 className=" text-lg max-md: font-bold mb-4">Follow Us</h2>
-          <div className="  flex justify-between w-full *:size-10 gap-5 *:transition-colors  *:hover:text-white **:size-8 ">
-            <a href="https://www.facebook.com/ibr4nx" className="" ><FaFacebook/></a>
-            <a href="https://www.instagram.com/ibr4nx" className="" ><FaInstagram/></a>
-            <a href="https://www.twitter.com/ibr4nx" className="" ><FaX/></a>
-            <a href="https://www.whatsapp.com" className="" ><FaWhatsapp/></a>
-
-          </div>
+      <div className="container mx-auto px-4 flex justify-between mt-6 text-center text-sm text-gray-500">
+        <div className="flex items-center gap-2">
+          <FaGithub />
+          <p className="text-sm text-gray-600">{t("copyright", { year: new Date().getFullYear() })}</p>
         </div>
-        <div dir="ltr" className="flex gap-2 justify-center items-center  ">
-          <FaGithub/>
-          <p>&copy; {new Date().getFullYear()} Ibrahim Al-Mekhlafi. All rights reserved.</p>
-        </div>
+        <span>{t("madeWith")}</span>
       </div>
     </footer>
   );
