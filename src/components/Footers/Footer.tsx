@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { FaInstagram, FaFacebook, FaX, FaWhatsapp, FaGithub } from "react-icons/fa6";
 import ThemeBtn from "../../features/theme/ThemeBtn";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   const { t } = useTranslation("footer");
@@ -23,17 +24,17 @@ export default function Footer() {
         </div>
         <div className="  grid grid-cols-2 gap-4  md:grid-cols-2">
           <div className=" *:block *:w-fit gap-3 flex flex-col">
-            <a href="/about" className="hover:underline">{t("links.about")}</a>
-            <a href="/services" className="hover:underline">{t("links.services")}</a>
-            <a href="/privacy-policy" className="hover:underline">{t("links.privacy")}</a>
-            <a href="/contact" className="hover:underline">{t("links.contact")}</a>
+            <Link to="/about" className="hover:underline">{t("links.about")}</Link>
+            <Link to="/services" className="hover:underline">{t("links.services")}</Link>
+            <Link to="/privacy-policy" className="hover:underline">{t("links.privacy")}</Link>
+            <Link to="/contact" className="hover:underline">{t("links.contact")}</Link>
           </div>
 
           <div className=" *:block *:w-fit gap-3 flex flex-col">
-            <a href="/blog" className="hover:underline">{t("links.blog")}</a>
-            <a href="/careers" className="hover:underline">{t("links.careers")}</a>
-            <a href="/support" className="hover:underline">{t("links.support")}</a>
-            <a href="/faq" className="hover:underline">{t("links.faq")}</a>
+            <Link to="/blog" className="hover:underline">{t("links.blog")}</Link>
+            <Link to="/careers" className="hover:underline">{t("links.careers")}</Link>
+            <Link to="/support" className="hover:underline">{t("links.support")}</Link>
+            <Link to="/faq" className="hover:underline">{t("links.faq")}</Link>
           </div>
 
         </div>
