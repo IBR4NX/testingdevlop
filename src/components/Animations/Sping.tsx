@@ -1,15 +1,25 @@
 import { ImSpinner6 } from "react-icons/im";
 import { motion } from "framer-motion";
-
-export default function Sping() {
-    return (
-        <div className=" fixed top-0 left-0 h-screen w-screen z-50  backdrop-blur-xs text-3xl flex items-center justify-center">
-            <motion.div
-                initial={{ opacity: 0, scale: 0.1, y: 100 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                className="bg-gray-950/80 dark:bg-white/80 flex items-center size-40 min-w-sm lg:min-w-md p-10 rounded-2xl m-auto ">
-                <ImSpinner6 size="50" className=" text-white dark:text-black m-auto backdrop rounded-full bg-white/10 animate-spin " />
-            </motion.div>
+import {  useState } from "react";
+export default function Sping({ outTime }: { outTime: boolean }) {
+  const [showIntro, setShowIntro] = useState(true);
+  if(outTime===false){
+      setTimeout(()=>setShowIntro(false),1000);
+    }
+      
+  return (
+    <>
+      { showIntro &&
+        <div style={{ zIndex: 999 }}
+          className=" fixed inset-0 h-screen w-screen bg-white/90 dark:bg-black/90 transition-colors  backdrop-blur-xs text-3xl flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 1, scale: 0.8, y: 0 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            className="  flex items-center pb-20 size-40 min-w-sm lg:min-w-md rounded-2xl m-auto ">
+            <ImSpinner6 size="60" className=" text-black dark:text-white m-auto backdrop rounded-full bg-white/10 animate-spin " />
+          </motion.div>
         </div>
-    )
+      }
+    </>
+  )
 }

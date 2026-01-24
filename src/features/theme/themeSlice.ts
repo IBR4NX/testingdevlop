@@ -14,26 +14,35 @@ export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    // dark: (state) => {
-    //   console.log("dark");
-    //   document.documentElement.classList.remove("dark", "light");
-    //   document.documentElement.classList.add("dark");
-    //   localStorage.setItem("theme", "dark");
-    //   state.value = "dark";
-    // },
-    // light: (state) => {
-    //   document.documentElement.classList.remove("dark", "light");
-    //   document.documentElement.classList.add("light");
-    //   localStorage.setItem("theme", "light");
-    //   state.value = "light";
-    // },
-    // system: (state) => {
-    //   const osTheme = window.matchMedia("(prefers-color-scheme: dark)").matches? "dark": "light";
-    //   console.log("system", "---", osTheme);
-    //   document.documentElement.classList.remove("dark", "light");
-    //   document.documentElement.classList.add(osTheme);
-    // },
-    setTheme:(state)=>{
+    system: (state) => {
+      // console.log(state.value);
+         document.documentElement.classList.remove("dark", "light");
+        if (state.value==="OS default"|| !state.value ) {
+          document.documentElement.classList.add(state.mode);
+          localStorage.setItem("theme","OS default")
+          state.value="OS default"
+          if ( state.mode==="dark") {
+          state.next="light"
+        }else{
+          state.next="dark"
+        }
+        }else{
+          document.documentElement.classList.add(state.value);
+          localStorage.setItem("theme",state.value)
+          // state.value=state.value
+          if ( state.value==="light") {
+          state.next="dark"
+          } else{
+            // console.log(state.value,"0");
+          if (state.value==="dark") {
+            state.next="light";
+          }else{
+            state.next="OS default"
+          } 
+        }}
+      },
+      setTheme:(state)=>{
+        // console.log("setTheme");
       document.documentElement.classList.remove("dark", "light");
       if (state.next==="OS default" || !state.next ) {
         document.documentElement.classList.add(state.mode);
@@ -61,7 +70,13 @@ export const themeSlice = createSlice({
   },
 });
 
-export const { setTheme } = themeSlice.actions;
+export const { setTheme,system } = themeSlice.actions;
 
 export default themeSlice.reducer;
-
+// import { system } from "./features/theme/themeSlice.ts";
+import { useDispatch } from "react-redux";
+export function Sys() {
+    const dispatch = useDispatch();
+  dispatch(system());
+  
+}

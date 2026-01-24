@@ -1,9 +1,18 @@
 import { useTranslation } from "react-i18next";
 // import { useNavigate } from "react-router-dom";
-
+import { useEffect } from "react";
 export default function PrivacyPolicy() {
-  const { t } = useTranslation("privacy");
-
+  const { t } =   useTranslation("privacy");
+  useEffect(() => {
+    document.title = "Privacy Policy | Ibovs";
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute(
+        "content",
+        "سياسة الخصوصية الخاصة بموقع Ibovs وكيفية التعامل مع بيانات المستخدمين."
+      );
+    }
+  }, []);
   const getList = (key: string): string[] => {
     const val = t(key, { returnObjects: true });
     if (Array.isArray(val)) return val as string[];

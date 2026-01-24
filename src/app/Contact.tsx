@@ -1,8 +1,18 @@
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
 
 export default function Contact() {
     const { t } = useTranslation();
-
+    useEffect(() => {
+    document.title = "Contact Us | Ibovs";
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) {
+      meta.setAttribute(
+        "content",
+        "تواصل معنا عبر نموذج الاتصال أو وسائل التواصل الخاصة بموقع Ibovs."
+      );
+    }
+  }, []);
     return (
         <main className="max-w-3xl  px-4 py-12 ">
             {/* Title */}
