@@ -56,7 +56,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className=" hidden w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div className=" hidden w-full lg:w-1/2  justify-center lg:justify-end">
           <motion.div
             initial={{ scale: 0.98, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -66,7 +66,7 @@ export default function Home() {
             <motion.div
               animate={{ y: [0, -12, 0] }}
               transition={{ duration:64, repeat: Infinity, ease: "easeInOut" }}
-              className="rounded-2xl bg-gradient-to-tr from-amber-100 to-amber-200 dark:from-gray-800 dark:to-gray-700 p-8 shadow-xl"
+              className="rounded-2xl bg-linear-to-tr from-amber-100 to-amber-200 dark:from-gray-800 dark:to-gray-700 p-8 shadow-xl"
             >
               <div className="w-72 h-44 bg-white/90 dark:bg-black/50 rounded-lg flex flex-col items-center justify-center text-2xl font-semibold text-gray-800 dark:text-white">
                 <div>معاينة المحفظة</div>

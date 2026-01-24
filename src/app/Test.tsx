@@ -1,15 +1,19 @@
-import { neon } from '@netlify/neon';
+// import { neon } from '@netlify/neon';
+import { useEffect } from 'react';
 
 function Test() {
 
-   const postId = 1;
-    const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const post =  sql`SELECT * FROM posts WHERE id = ${postId}`;
+  //  const postId = 1;
+  //   const sql = neon(); // automatically uses env NETLIFY_DATABASE_URL
+  //   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //   const [post] = [ sql`SELECT * FROM posts WHERE id = ${postId}`];
   
-  // fetch("http://localhost:5000/test")
-  //   .then(res => res.json())
-  //   .then(data => console.log(data));
+  useEffect(() => {
+  fetch("/netlify/functions/getData.js?id=1")
+    .then(res => res.json())
+    .then(data => console.log(data));
+}, []);
+
 
 
 

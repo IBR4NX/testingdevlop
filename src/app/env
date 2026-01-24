@@ -1,1 +1,0 @@
-NETLIFY_DATABASE_URL='postgresql://neondb_owner:npg_U9Hz5yImhQxM@ep-polished-dew-aerlcv1p-pooler.c-2.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require'
