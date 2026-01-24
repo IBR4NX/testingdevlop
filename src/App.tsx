@@ -2,6 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { RecoilRoot } from 'recoil';
 import { BrowserRouter, Routes, Route, useLocation, Navigate,   } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const Home = React.lazy(() => import("./app/Home.js"));
 const About = React.lazy(() => import("./app/About.js"));
@@ -54,6 +55,7 @@ function App() {
           </RecoilRoot>
         </div>
       </div>
+      <SpeedInsights />
     </>
   );
 }
