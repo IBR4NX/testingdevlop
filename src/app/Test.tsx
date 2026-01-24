@@ -9,7 +9,7 @@ function Test() {
   //   const [post] = [ sql`SELECT * FROM posts WHERE id = ${postId}`];
   
   useEffect(() => {
-  fetch("/netlify/functions/getData.js?id=1")
+  fetch("/.netlify/functions/getData.js?id=1")
     .then(res => res.json())
     .then(data => console.log(data));
 }, []);
