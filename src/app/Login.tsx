@@ -65,7 +65,7 @@ const { t } = useTranslation('common');
           </div>
 
           <div className=" -mx-4 items-center justify-between">
-          
+          {messange && <p className="text-red-500">{messange}</p>}
 
             <div className="text-sm">
               <a href="#" className="font-medium text-gold text-gold-hover">
@@ -88,7 +88,7 @@ const { t } = useTranslation('common');
             <span className="text-sm text-alpha ">
              Dont have an account?
               <a href="/register" className="font-medium text-gold ">
-                Sign Up
+               {loading? <Loading size={24}/> : "Sign Up"}
               </a>
             </span>
           </div>

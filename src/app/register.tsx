@@ -1,18 +1,17 @@
 // Register.tsx
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { login } from "../features/auth/authSlice";
-import apiPost, { post } from "../features/api/api.js";
+// import { useDispatch } from "react-redux";
+import  { post } from "../features/api/api.js";
 import Loading from "../components/Animations/Loading.js";
 
 export default function Register() {
   const nav = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [messange, setMessange] = useState("");
   const [loading, setLoading] = useState(false);
-  const [username, setUsername] = useState("");
-  const [step, setStep] = useState(false);
+  // const [username, setUsername] = useState("");
+  // const [step, setStep] = useState(false);
   // const cssInput="";
 
   function handleRegister(e: React.FormEvent<HTMLFormElement>) {
@@ -59,14 +58,14 @@ export default function Register() {
           <h2 className="mt-4 sm:mt-6 text-center text-2xl sm:text-3xl font-extrabold ">sign Up</h2>
           <form className="mt-6 sm:mt-8 space-y-4 sm:space-y-6" onSubmit={handleRegister}>
             <div className="rounded-md shadow-sm space-y-2">
-              {step?
+              
               <input className="appearance-none  relative block w-full px-3 py-3 sm:py-2 outline-none  rounded-2xl border border-alpha-35 border-gold-focus  text-sm" type="text" name="username" placeholder="username" required />
-              :<>
+              <>
               <input className="appearance-none  relative block w-full px-3 py-3 sm:py-2 outline-none  rounded-2xl border border-alpha-35 border-gold-focus  text-sm" type="text" name="name" placeholder="الاسم" required />
               <input className="appearance-none  relative block w-full px-3 py-3 sm:py-2 outline-none  rounded-2xl border border-alpha-35 border-gold-focus  text-sm" type="email" name="email" placeholder="الايميل" required />
               <input className="appearance-none  relative block w-full px-3 py-3 sm:py-2 outline-none  rounded-2xl border border-alpha-35 border-gold-focus  text-sm" type="password" name="password" placeholder="كلمة المرور" required />
               </>
-              }
+              
             </div>
 
             <div className=" -mx-4 items-center justify-between">
