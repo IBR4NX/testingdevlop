@@ -87,7 +87,7 @@ const { t } = useTranslation('common');
           <div className="text-center">
             <span className="text-sm text-alpha ">
              Dont have an account?
-              <a href="/register" className="font-medium text-gold ">
+              <a href="/register" className="font-medium *:mx-auto text-gold ">
                {loading? <Loading size={24}/> : "Sign Up"}
               </a>
             </span>
