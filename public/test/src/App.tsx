@@ -14,7 +14,6 @@ import Layout from './app/Layout/Layout';
 import Sping from './components/Animations/Sping.js';
 import PrivacyPolicy from './app/PrivacyPolicy.js';
 import Contact from './app/Contact.js';
-const Login = React.lazy(() => import("./app/Login"));
 
 /*
 const Search = React.lazy(() => import("@/pages/Search"));
@@ -22,7 +21,6 @@ const Info = React.lazy(() => import("@/pages/Info"));
 const Profile = React.lazy(() => import("@/pages/Profile"));
 */
 import { Sys } from "./features/theme/themeSlice.ts";
-import Register from './app/register.tsx';
 function App() {
    Sys()
   const [loading, setLoading] = useState(true);
@@ -70,8 +68,6 @@ function AnimatedRoutes() {
         <Suspense fallback={<Sping outTime={true} />}>
           <Routes location={location} key={location.pathname}>
             <Route path="search" element={<Navigate to="/" />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route  element={<Layout />}>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

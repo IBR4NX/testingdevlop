@@ -9,27 +9,10 @@ function Test() {
   //   const [post] = [ sql`SELECT * FROM posts WHERE id = ${postId}`];
   
   useEffect(() => {
-  fetch("http://localhost:5000/test")
+  fetch("/netlify/functions/getData.js?id=1")
     .then(res => res.json())
-    .then(data => console.log("From backend:", data))
-    .catch(err => console.error(err));
+    .then(data => console.log(data));
 }, []);
-const sendPost = async () => {
-  const response = await fetch("http://localhost:5000/posts", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title: "Hello",
-      content: "This is my first post",
-    }),
-  });
-
-  const data = await response.json();
-  console.log(data);
-};
-
 
 
 
@@ -38,7 +21,7 @@ const sendPost = async () => {
     <>
       <div className="fixed bottom-5 border-b  left-10 flex gap-2">
         {/* <button onClick={() => setIsOpen(true)}>Open </button> */}
-        <button onClick={sendPost}>send post</button>
+        {/* <button onClick={()=>}>Test </button> */}
         {/* <div className="">{sizeW} x {sizeH}</div> */}
       </div>
     </>
